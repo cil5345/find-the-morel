@@ -1,0 +1,34 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    width: 100%;
+    height: 100%;
+    background-color: antiquewhite;
+    /* background-color: #FBDA61;
+    background-image: linear-gradient(135deg, #FBDA61 0%, #FF5ACD 100%); */
+    
+  }
+  
+ .container {
+  
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 800px;
+    text-align: center;
+}
+
+.header{
+width: 50%;
+
+}
+ .header h1,p,button {
+   
+    margin: 10px 20px;
+}
