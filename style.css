@@ -29,6 +29,9 @@ width: 50%;
 
 }
  .header h1,p,button {
-   
     margin: 10px 20px;
+}
+
+.hidden {
+    visibility: hidden;
 }
