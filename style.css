@@ -5,46 +5,63 @@
   }
 
   body {
-    width: 100%;
-    height: 100%;
     background-color: antiquewhite;
     /* background-color: #FBDA61;
     background-image: linear-gradient(135deg, #FBDA61 0%, #FF5ACD 100%); */
-    
   }
 
-
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; 
+  text-align: center;
+ height: 100vh;
+}
   
- .container {
-  
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center; 
-    width: 100%;
-    min-height: 40em;
-    text-align: center;
-    margin-top: 40px;
+.section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; 
+  text-align: center;
+ height: 100vh;
 }
 
-.header{
-width: 75%;
-height: 75%;
+.game-page .container {
+  position: relative;
 }
 
+ .forest-floor {
+  width: 75%;
+  position: relative;
 
+}
+
+ .mushroom {
+   width: 5%;
+   position: absolute;
+   
+  
+}
+    
+
+
+/* 
 .game-page .container {
   background-color:blanchedalmond;
   width: 100%;
   height: 100%;
-  position: absolute;
-  
+  position: relative;
+
 }
 .game-page .morel {
   background-color: blue;
   width: 7%;
   height: 10%;
-  position: fixed;
+  position: absolute;
+
+  
 }
 
 .forest-floor {
@@ -53,7 +70,7 @@ height: 75%;
 }
 .mushroom {
   width: 75%;
-}
+} */
 
 
 
