@@ -1,52 +1,61 @@
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-  body {
-    background-color: antiquewhite;
-    /* background-color: #FBDA61;
+body {
+  background-color: antiquewhite;
+  /* background-color: #FBDA61;
     background-image: linear-gradient(135deg, #FBDA61 0%, #FF5ACD 100%); */
-  }
+}
 
 .header {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center; 
+  align-items: center;
   text-align: center;
- height: 100vh;
+  height: 100vh;
 }
-  
+
+.header .container {
+  width: 50%;
+}
+
 .section {
   display: flex;
-  flex-direction: column;
   justify-content: center;
-  align-items: center; 
+  align-items: center;
   text-align: center;
- height: 100vh;
+  height: 100vh;
 }
 
 .game-page .container {
   position: relative;
 }
 
- .forest-floor {
+.forest-floor {
   width: 75%;
   position: relative;
-
+  z-index: 1;
 }
 
- .mushroom {
-   width: 5%;
-   position: absolute;
-   
-  
+.mushroom {
+  width: 5%;
+  position: absolute;
+  z-index: 3;
+  opacity: 0.7;
+  /* transform: rotate(-45deg); */
 }
-    
 
+.highlight {
+  filter: drop-shadow(1px 1px 0 yellow) drop-shadow(-1px -1px 0 white);
+}
 
+.timer {
+  font-size: large;
+}
 /* 
 .game-page .container {
   background-color:blanchedalmond;
@@ -72,16 +81,12 @@
   width: 75%;
 } */
 
-
-
-
-
-
- .header h1,p,button {
-    margin: 10px 20px;
+.header h1,
+p,
+button {
+  margin: 10px 20px;
 }
 
 .viewport {
   display: none;
 }
-
