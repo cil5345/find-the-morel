@@ -5,17 +5,21 @@ const introPage = document.querySelector('.header');
 const gamePage = document.querySelector('.game-page');
 const mushroom = document.querySelector('.mushroom');
 const forestFloor = document.querySelector('.forest-floor');
+const timer = document.querySelector('.clock')
+let time = 10
 
 //BTN Starts the Game
 playBtn.addEventListener('click', function () {
   introPage.remove();
   gamePage.classList.remove('viewport');
   randomizeMushLoc();
+  gameTimer()
 });
 
 //Click Morel
 mushroom.addEventListener('click', function () {
   console.log('click');
+  time += 3
   addHighlight()
   
 });
@@ -32,9 +36,23 @@ const randomizeMushLoc = function () {
 const addHighlight = function() {
   mushroom.classList.add('highlight')
   mushroom.style.opacity = 1
+
   setTimeout(function() {
     mushroom.style.opacity = 0.7
     mushroom.classList.remove('highlight')
     randomizeMushLoc()
+  }, 1000)
+}
+
+
+const gameTimer =  function() {
+  timer.textContent = `0:${time}`
+  const clock = setInterval(function() {
+  timer.textContent = time < 10 ? `0:0${time}` : `0:${time}`
+  time --;
+
+  if (time < 0) {
+    clearInterval(clock)
+  }
   }, 1000)
 }
