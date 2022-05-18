@@ -16,12 +16,27 @@ let score = 0;
 const addHighlight = function () {
   mushroom.classList.add('highlight');
   mushroom.style.opacity = 1;
+ 
+
+  const opacity = Math.floor(Math.random() * 7) + 3;
 
   setTimeout(function () {
-    mushroom.style.opacity = 0.7;
+    mushroom.style.opacity = `0.${opacity}`;
     mushroom.classList.remove('highlight');
     randomizeMushLoc();
+    addRotation();
+    addSize();
   }, 1000);
+};
+
+const addSize = function () {
+  const size = Math.floor(Math.random() * 5) + 3;
+  mushroom.style.width = `${size}%`;
+};
+
+const addRotation = function () {
+  const degree = Math.floor(Math.random() * 90) + -90;
+  mushroom.style.transform = `rotate(${degree}deg)`;
 };
 
 //Randomize Mushroom Location within ppic
@@ -49,24 +64,28 @@ const gameTimer = function () {
 
 //Add Points
 const addPoints = function () {
-  score += 4;
+  score += 5;
   points.textContent = score < 10 ? `0${score}` : `${score}`;
 };
 
 //Game Over Sequence
 const gameEnd = function () {
-  gamePage.parentNode.removeChild(gamePage);
-  gameEndHtml();
+  setTimeout(function () {
+    gamePage.parentNode.removeChild(gamePage);
+    gameEndHtml();
+  }, 1000);
+
+  addHighlight();
 };
 
 const gameEndHtml = function () {
-  const html = 
-  `<div class="game-over">
+  const html = `<div class="game-over">
       <div class="container">
         <div>Game Over</div>
+        <div>${score}</div>
         <button type="button" class="btn btn-replay">Play</button>
       </div>
-   </div>`
+   </div>`;
   body.insertAdjacentHTML('beforeend', html);
 };
 
@@ -79,12 +98,13 @@ playBtn.addEventListener('click', function () {
   gamePage.classList.remove('viewport');
   randomizeMushLoc();
   gameTimer();
+  addSize()
 });
 
 //Click Morel
 mushroom.addEventListener('click', function () {
   console.log('click');
-  time += 2;
+  time += 3;
   addHighlight();
   addPoints();
 });

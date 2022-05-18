@@ -5,10 +5,13 @@
 }
 
 body {
-  background-color: antiquewhite;
+  background: rgb(244,213,23);
+background: linear-gradient(90deg, rgba(244,213,23,1) 0%, rgba(210,105,15,1) 100%);
+  /* background-color: antiquewhite; */
   /* background-color: #FBDA61;
     background-image: linear-gradient(135deg, #FBDA61 0%, #FF5ACD 100%); */
 }
+
 
 .header {
   display: flex;
@@ -48,11 +51,17 @@ body {
 
 }
 
-.game-over .container div{
-height: 100%;
+.game-over .container div:nth-child(1){
+height: 75%;
 font-size: 100px;
 
 }
+
+.game-over .container div:nth-child(2){
+  height: 75%;
+  font-size: 75px;
+  
+  }
 
 
 
@@ -64,11 +73,11 @@ font-size: 100px;
 }
 
 .mushroom {
-  width: 5%;
+
   position: absolute;
-  z-index: 3;
+  z-index: 5;
   opacity: 0.9;
-  transform: rotate(-45deg);
+ 
 }
 
 .highlight {
@@ -137,4 +146,25 @@ button {
 
 .viewport {
   display: none;
+}
+
+.custom-shape-divider-bottom-1652847145 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+}
+
+.custom-shape-divider-bottom-1652847145 svg {
+  position: relative;
+  display: block;
+  width: calc(135% + 1.3px);
+  height: 279px;
+}
+
+.custom-shape-divider-bottom-1652847145 .shape-fill {
+  fill: #794b20;
 }
