@@ -33,10 +33,27 @@ body {
   position: relative;
   display: flex;
   justify-content: center;
-  align-content: center;
+  align-content: flex-start;
   text-align: center;
   height:100vh;
 }
+
+.game-over {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+  height: 100vh;
+
+}
+
+.game-over .container div{
+height: 100%;
+font-size: 100px;
+
+}
+
 
 
 .forest-floor {
@@ -81,6 +98,11 @@ body {
 
 .timer div {
   padding: 30px;
+}
+
+.clock, .points {
+  font-size: 40px;
+  line-height: 10px;
 }
 /* 
 .game-page .container {
