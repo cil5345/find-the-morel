@@ -1,10 +1,12 @@
 'use strict';
 
 const playBtn = document.querySelector('.btn-play');
+const replayBtn = document.querySelector('.btn-replay');
 const introPage = document.querySelector('.header');
 const gamePage = document.querySelector('.game-page');
 const mushroom = document.querySelector('.mushroom');
 const forestFloor = document.querySelector('.forest-floor');
+const gameOver = document.querySelector('.game-over');
 const body = document.querySelector('body');
 const timer = document.querySelector('.clock');
 const points = document.querySelector('.points');
@@ -16,7 +18,6 @@ let score = 0;
 const addHighlight = function () {
   mushroom.classList.add('highlight');
   mushroom.style.opacity = 1;
- 
 
   const opacity = Math.floor(Math.random() * 7) + 3;
 
@@ -32,6 +33,7 @@ const addHighlight = function () {
 const addSize = function () {
   const size = Math.floor(Math.random() * 5) + 3;
   mushroom.style.width = `${size}%`;
+  console.log(`Mushroom is ${size}%`)
 };
 
 const addRotation = function () {
@@ -62,6 +64,11 @@ const gameTimer = function () {
   }, 1000);
 };
 
+//adds the 0 score after new game 
+const addScore = function() {
+  points.textContent = score < 10 ? `0${score}` : `${score}`
+}
+
 //Add Points
 const addPoints = function () {
   score += 5;
@@ -71,11 +78,16 @@ const addPoints = function () {
 //Game Over Sequence
 const gameEnd = function () {
   setTimeout(function () {
-    gamePage.parentNode.removeChild(gamePage);
-    gameEndHtml();
-  }, 1000);
+   
+    // gamePage.parentNode.removeChild(gamePage);
+    // gameEndHtml();
+    gamePage.style.display ='none'
+    gameOver.classList.remove('game-over-viewport')
+    document.querySelector('.final-score').textContent = score
 
+  }, 1000);
   addHighlight();
+
 };
 
 const gameEndHtml = function () {
@@ -86,7 +98,40 @@ const gameEndHtml = function () {
         <button type="button" class="btn btn-replay">Play</button>
       </div>
    </div>`;
+
   body.insertAdjacentHTML('beforeend', html);
+};
+
+const gameRestartHtml = function () {
+  const html = `<div class="game-page section">
+  <div class="container game-container">
+  <div class="timer">
+  <div class="clock"></div>
+  </div>
+  <img
+  class="forest-floor"
+  src="/img/wallpaperflare.com_wallpaper.jpg"
+  alt="forest floor"
+  />
+  
+  <img
+  class="mushroom"
+  src="/img/—Pngtree—morel mushroom_5786360.png"
+  alt="Morel"
+  />
+  <div class="scoreboard">
+  <div class="points">00</div>
+  </div>
+  </div>
+  </div>`;
+  
+  // restartViewport.classList.remove('viewport')
+  body.insertAdjacentHTML('beforebegin', html);
+  
+  time = 10
+  score = 0
+
+
 };
 
 //*******************************************************
@@ -98,7 +143,7 @@ playBtn.addEventListener('click', function () {
   gamePage.classList.remove('viewport');
   randomizeMushLoc();
   gameTimer();
-  addSize()
+  addSize();
 });
 
 //Click Morel
@@ -108,3 +153,33 @@ mushroom.addEventListener('click', function () {
   addHighlight();
   addPoints();
 });
+
+//Replay Game
+replayBtn.addEventListener('click', function() {
+  gameOver.classList.add('game-over-viewport')
+  gamePage.style.display ='flex'
+  time = 10
+  score = 0
+
+  randomizeMushLoc();
+  gameTimer();
+  addSize();
+  addScore();
+
+
+  //retart time and score
+
+  //
+
+})
+
+
+
+// document.body.addEventListener('click', function (e) {
+//   if (e.target && e.target.classList.contains('btn-replay')) {
+//     const gameOver = document.querySelector('.game-over');
+//     gameOver.remove();
+//     console.log('hello')
+    
+//   }
+// });
