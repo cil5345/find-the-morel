@@ -19,7 +19,7 @@ const addHighlight = function () {
   mushroom.classList.add('highlight');
   mushroom.style.opacity = 1;
 
-  const opacity = Math.floor(Math.random() * 7) + 3;
+  const opacity = Math.floor(Math.random() * 7) + 4;
 
   setTimeout(function () {
     mushroom.style.opacity = `0.${opacity}`;
@@ -33,7 +33,7 @@ const addHighlight = function () {
 const addSize = function () {
   const size = Math.floor(Math.random() * 5) + 3;
   mushroom.style.width = `${size}%`;
-  console.log(`Mushroom is ${size}%`)
+  console.log(`Mushroom is ${size}%`);
 };
 
 const addRotation = function () {
@@ -64,10 +64,10 @@ const gameTimer = function () {
   }, 1000);
 };
 
-//adds the 0 score after new game 
-const addScore = function() {
-  points.textContent = score < 10 ? `0${score}` : `${score}`
-}
+//adds the 0 score after new game
+const addScore = function () {
+  points.textContent = score < 10 ? `0${score}` : `${score}`;
+};
 
 //Add Points
 const addPoints = function () {
@@ -78,16 +78,13 @@ const addPoints = function () {
 //Game Over Sequence
 const gameEnd = function () {
   setTimeout(function () {
-   
     // gamePage.parentNode.removeChild(gamePage);
     // gameEndHtml();
-    gamePage.style.display ='none'
-    gameOver.classList.remove('game-over-viewport')
-    document.querySelector('.final-score').textContent = score
-
+    gamePage.style.display = 'none';
+    gameOver.classList.remove('game-over-viewport');
+    document.querySelector('.final-score').textContent = score;
   }, 1000);
   addHighlight();
-
 };
 
 const gameEndHtml = function () {
@@ -124,14 +121,12 @@ const gameRestartHtml = function () {
   </div>
   </div>
   </div>`;
-  
+
   // restartViewport.classList.remove('viewport')
   body.insertAdjacentHTML('beforebegin', html);
-  
-  time = 10
-  score = 0
 
-
+  time = 10;
+  score = 0;
 };
 
 //*******************************************************
@@ -155,31 +150,28 @@ mushroom.addEventListener('click', function () {
 });
 
 //Replay Game
-replayBtn.addEventListener('click', function() {
-  gameOver.classList.add('game-over-viewport')
-  gamePage.style.display ='flex'
-  time = 10
-  score = 0
+replayBtn.addEventListener('click', function () {
+  gameOver.classList.add('game-over-viewport');
+  gamePage.style.display = '';
+  time = 10;
+  score = 0;
 
   randomizeMushLoc();
   gameTimer();
   addSize();
   addScore();
 
-
   //retart time and score
 
   //
-
-})
-
-
+});
 
 // document.body.addEventListener('click', function (e) {
 //   if (e.target && e.target.classList.contains('btn-replay')) {
 //     const gameOver = document.querySelector('.game-over');
 //     gameOver.remove();
 //     console.log('hello')
-    
+
 //   }
 // });
+

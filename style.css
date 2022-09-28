@@ -27,6 +27,7 @@ background: linear-gradient(90deg, rgba(244,213,23,1) 0%, rgba(210,105,15,1) 100
 
 h1 {
 font-size: 50px;
+font-weight: 800;
 }
 
 h1 p {
@@ -83,6 +84,8 @@ font-size: 75px;
   position: relative;
   z-index: 1;
   padding: 20px;
+  border-radius: 30px;
+
 }
 
 .mushroom {
